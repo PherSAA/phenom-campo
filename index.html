@@ -1,0 +1,24 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Prueba de campo · Célula</title><link rel="stylesheet" href="campo.css"></head><body>
+<header><h1>🧬 Prueba de campo · Célula</h1><p class="sub">Testnet / simulación. Sin dinero real.</p></header>
+<section class="card"><label>Nombre del celular <input id="nombre" placeholder="ej. iPhone-7-Chris"></label>
+<label>Modo <select id="modo"><option value="siempre">Siempre encendido</option><option value="metro">Metro (horario activo/reposo)</option><option value="metro-cola">Metro (según cola de trabajo)</option></select></label>
+<div class="row"><label>Activo s <input id="activoSeg" type="number" value="20"></label><label>Reposo s <input id="reposoSeg" type="number" value="40"></label><label>Ingesta t/s <input id="ingesta" type="number" value="5"></label></div>
+<label>Batería inicial % (manual, iPhone) <input id="batIni" type="number" min="0" max="100" placeholder="ej. 87"></label>
+<div class="row"><button id="iniciar" class="pri">▶ Iniciar</button><button id="parar">■ Parar</button></div></section>
+<section class="card grid" id="panel">
+<div><b id="tiempo">0:00:00</b><span>tiempo</span></div><div><b id="tareas">0</b><span>tareas</span></div>
+<div><b id="tps">0</b><span>tareas/s</span></div><div><b id="cpu">0%</b><span>CPU estimada</span></div>
+<div><b id="bateria">—</b><span>batería</span></div><div><b id="carga">—</b><span>cargando</span></div>
+<div><b id="red">—</b><span>red</span></div><div><b id="wake">—</b><span>pantalla</span></div>
+<div><b id="estado">parado</b><span>célula</span></div><div><b id="cola">0</b><span>cola</span></div></section>
+<section class="card"><button id="desastre" class="warn">⚠ Simular desastre</button><p class="nota" id="notaDesastre">Corta la red desde el punto de vista de la app: pausa la ingesta y la célula sigue trabajando.</p></section>
+<section class="card"><h2>Pagos sin conexión (intenciones firmadas)</h2>
+<div class="row"><label>Monto <input id="monto" type="number" value="50"></label><label>Destino <input id="destino" value="comercio-A"></label></div>
+<div class="row"><button id="pagar">✍ Firmar pago</button><button id="doble">Duplicar (doble gasto)</button></div>
+<label>Servidor de liquidación <input id="servidor" placeholder="vacío = este mismo servidor"></label>
+<div class="row"><button id="liquidar" class="pri">⇪ Liquidar</button><a href="pagos.html" class="btn">Ver cola</a></div><p class="nota" id="pagosNota"></p></section>
+<section class="card"><label>Batería final % (manual) <input id="batFin" type="number" min="0" max="100"></label>
+<div class="row"><button id="copiar">Copiar JSON</button><button id="descargar">Descargar</button><button id="compartir">Compartir</button></div>
+<p class="nota" id="log"></p></section>
+<script src="vendor/nacl-fast.min.js"></script><script type="module" src="campo.js"></script></body></html>
