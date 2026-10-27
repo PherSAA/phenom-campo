@@ -1,0 +1,82 @@
+{
+ "red": "wss://testnet.xrpl-labs.com",
+ "pagador": "rhjhUfkaJfgi3nA81mvAYF4ZzE5duvwXu6",
+ "secuencia": 21629859,
+ "ledgerAlFirmar": 21867605,
+ "fecha": "2026-10-27T16:19:22.878Z",
+ "offline": [
+  {
+   "caso": "1_valida_A",
+   "comercio": "A",
+   "aceptadaOffline": true
+  },
+  {
+   "caso": "2_doble_gasto_B_misma_secuencia",
+   "comercio": "B",
+   "aceptadaOffline": true
+  },
+  {
+   "caso": "3_doble_gasto_local_A",
+   "comercio": "A",
+   "aceptadaOffline": false,
+   "motivo": "doble_gasto_local_misma_secuencia"
+  },
+  {
+   "caso": "4_supera_tope_por_pago",
+   "comercio": "A",
+   "aceptadaOffline": false,
+   "motivo": "supera_tope_por_pago"
+  },
+  {
+   "caso": "5_caduca_pronto",
+   "comercio": "A",
+   "aceptadaOffline": true
+  },
+  {
+   "caso": "6_valida_A_siguiente",
+   "comercio": "A",
+   "aceptadaOffline": true
+  },
+  {
+   "caso": "7_firma_manipulada",
+   "comercio": "A",
+   "aceptadaOffline": false,
+   "motivo": "blob_invalido"
+  }
+ ],
+ "liquidacion": [
+  {
+   "caso": "1_valida_A",
+   "estado": "aceptada",
+   "motivo": "liquidada",
+   "envio": "tesSUCCESS",
+   "final": "tesSUCCESS",
+   "hash": "3FF12E8C79F62CCA3D87A44E15D614F8787B95FE5444BA4053D290A211D29666"
+  },
+  {
+   "caso": "2_doble_gasto_B_misma_secuencia",
+   "estado": "rechazada",
+   "motivo": "doble_gasto_secuencia_ya_usada",
+   "envio": "tefPAST_SEQ",
+   "hash": "FE8140AFB69BB4A5E05E8A7D91155A20249C8F6466D8584B908FF3A1D20D80AA"
+  },
+  {
+   "caso": "6_valida_A_siguiente",
+   "estado": "aceptada",
+   "motivo": "liquidada",
+   "envio": "tesSUCCESS",
+   "final": "tesSUCCESS",
+   "hash": "AA7D68F0FA1A92341C5F3B4841A9BF4FDE5F9944026783F78FBA7B49CFC76549"
+  },
+  {
+   "caso": "5_caduca_pronto",
+   "estado": "rechazada",
+   "motivo": "expirada_last_ledger_sequence",
+   "envio": "tefMAX_LEDGER",
+   "hash": "55BE25AC618CD5E2A6584474455D666702531E3F3A00E720B4BDBF2BDD2A20A2"
+  }
+ ],
+ "saldoAntesDrops": "89710198",
+ "saldoDespuesDrops": "89708174",
+ "nota": "Almacenar y reenviar: XRPL no liquida sin red. El doble gasto entre dos comercios solo se detecta al liquidar; el tope por pagador limita la pérdida."
+}
